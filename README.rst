@@ -79,7 +79,7 @@ Installation
 Description fields on the swagger docs
 --------------------------------------
 
-If you would like to include description fields to your swagger docs you can
+If you would like to include description fields to your Swagger docs you can
 include a description field in your schema validations in your ``settings.py``.
 This can be done per field as well as on the resource-level.
 
@@ -109,7 +109,7 @@ Disabling the documentation of a resource
 
 You can disable the documentation of a specific resource by adding a ``disable_documentation`` field
 to the resource definition in ``settings.py``. This means that the resource will not show up in
-the ``paths`` or ``definitions`` sections of the swagger docs.
+the ``paths`` or ``definitions`` sections of the Swagger docs.
 
 .. code-block:: python
 
@@ -120,6 +120,21 @@ the ``paths`` or ``definitions`` sections of the swagger docs.
         'schema': {...}
     }
     ...
+
+It is also possible to remove the field from Swagger's model definition by adding
+``disable_documentation`` to a field in the ``schema``. This will exclude the property in
+resource's section of the Swagger docs.
+
+.. code-block:: python
+
+    ...
+    'schema': {
+        'internal_id': {
+            'disable_documentation': True
+        },
+    }
+    ...
+
 
 Enabling the documentation of Eve event hooks
 ---------------------------------------------
@@ -141,7 +156,7 @@ This is done by showing the docstrings of the callback functions in the swagger 
     app.on_pre_GET_people += foo
     app.on_fetched_resource_people += bar
 
-The swagger docs will now look like this:
+The Swagger docs will now look like this:
 
 .. code-block:: python
 
