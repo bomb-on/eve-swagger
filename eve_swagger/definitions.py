@@ -35,6 +35,9 @@ def _object(rd, dr_sources):
     props = {}
     required = []
     for field, rules in rd['schema'].items():
+        if rules.get('disable_documentation'):
+            continue
+
         if rules.get('required') is True:
             required.append(field)
 

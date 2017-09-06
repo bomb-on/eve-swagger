@@ -51,6 +51,9 @@ Include
 Lib
 Scripts
 
+#pyenv
+.python-version
+
 #OSX
 .Python
 .DS_Store
